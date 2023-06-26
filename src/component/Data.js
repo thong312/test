@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button,Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 function Data() {
     const [APIData, setAPIData] = useState([]);
@@ -23,7 +23,7 @@ function Data() {
     };
     return (
         <div className='Data'>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} style={{marginTop:'20px'}}>
                 {APIData.map((data) => (
                     <Grid item key={data.id} md={4}>
                         <Card>
