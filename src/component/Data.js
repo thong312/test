@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button,Container } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Container, Icon } from '@mui/material';
 import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 function Data() {
     const [APIData, setAPIData] = useState([]);
     const baseURL = 'https://64901c9c1e6aa71680ca9a2f.mockapi.io/Players'; // Replace with your API base URL
@@ -21,9 +22,10 @@ function Data() {
             console.log(error.message);
         }
     };
+
     return (
-        <div className='Data'>
-            <Grid container spacing={2} style={{marginTop:'20px'}}>
+        <Container maxWidth="md" style={{ marginTop: '20px' }}>
+            <Grid container spacing={2} justifyContent="center">
                 {APIData.map((data) => (
                     <Grid item key={data.id} md={4}>
                         <Card>
@@ -44,8 +46,11 @@ function Data() {
                     </Grid>
                 ))}
             </Grid>
-            <Link to={`/add`}>ADD</Link>
-        </div>
-    )
+            <Link to={`/add`} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', textDecoration: 'none' }}>
+                <AddIcon/>
+            </Link>
+        </Container>
+    );
 }
+
 export default Data;

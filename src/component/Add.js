@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-import { TextField, Typography, FormControlLabel, Switch, Button, DialogActions, Alert, AlertTitle, Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material';
+import { TextField, Typography, FormControlLabel, Switch, Button, DialogActions, Alert, AlertTitle, Dialog, DialogTitle, DialogContent, DialogContentText, Card } from '@mui/material';
 
 function Add() {
     const [open, setOpen] = useState(false);
@@ -49,121 +49,124 @@ function Add() {
     });
 
     return (
-        <form onSubmit={formik.handleSubmit}>
-            <TextField
-                autoFocus
-                margin="dense"
-                name="name"
-                label="Name"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.name && (<Typography variant="caption" color="error">{formik.errors.name}</Typography>)}
-            <TextField
-                margin="dense"
-                name="club"
-                label="Club"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.club}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.club && (<Typography variant="caption" color="error">{formik.errors.club}</Typography>)}
-            <TextField
-                margin="dense"
-                name="nation"
-                label="Nation"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.nation}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.nation && (<Typography variant="caption" color="error">{formik.errors.nation}</Typography>)}
-            <TextField
-                margin="dense"
-                name="img"
-                label="URL of image"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.img}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.img && (<Typography variant="caption" color="error">{formik.errors.img}</Typography>)}
-            <TextField
-                margin="dense"
-                name="cost"
-                label="Market value"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.cost}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.cost && (<Typography variant="caption" color="error">{formik.errors.cost}</Typography>)}
-            <TextField
-                margin="dense"
-                name="clip"
-                label="Intro video"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.clip}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.clip && (<Typography variant="caption" color="error">{formik.errors.clip}</Typography>)}
-            <TextField
-                multiline
-                rows={2}
-                margin="dense"
-                name="description"
-                label="Information"
-                type="text"
-                fullWidth
-                variant="standard"
-                value={formik.values.description}
-                onChange={formik.handleChange}
-            />
-            {formik.errors.description && (<Typography variant="caption" color="error" display="block">{formik.errors.description}</Typography>)}
-            <FormControlLabel
-                control={<Switch />}
-                label="Top players"
-                name="top"
-                onChange={formik.handleChange}
-                checked={formik.values.top}
-            />
-            <br />
-            <Button variant="contained" size="small" type="submit">Add</Button>
-            <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">
-                    {"Congraturation"}
-                </DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        <Alert severity="success">
-                            <AlertTitle>Adding successful!</AlertTitle>
-                        </Alert>
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button><Link to='/dashboard' style={{ textDecoration: "none" }}>Dashboard</Link></Button>
-                    <Button autoFocus onClick={handleClose}>
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </form>
-
+        
+        <Card sx={{  backgroundColor: '#f5f5f5', padding: '1rem' }}>
+            <h1>ADD MORE CHARACTER</h1>
+            <form onSubmit={formik.handleSubmit}>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    name="name"
+                    label="Name"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.name && (<Typography variant="caption" color="error">{formik.errors.name}</Typography>)}
+                <TextField
+                    margin="dense"
+                    name="age"
+                    label="Age"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.club}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.club && (<Typography variant="caption" color="error">{formik.errors.club}</Typography>)}
+                <TextField
+                    margin="dense"
+                    name="nation"
+                    label="Nation"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.nation}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.nation && (<Typography variant="caption" color="error">{formik.errors.nation}</Typography>)}
+                <TextField
+                    margin="dense"
+                    name="img"
+                    label="URL of image"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.img}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.img && (<Typography variant="caption" color="error">{formik.errors.img}</Typography>)}
+                <TextField
+                    margin="dense"
+                    name="cost"
+                    label="Market value"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.cost}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.cost && (<Typography variant="caption" color="error">{formik.errors.cost}</Typography>)}
+                <TextField
+                    margin="dense"
+                    name="clip"
+                    label="Intro video"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.clip}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.clip && (<Typography variant="caption" color="error">{formik.errors.clip}</Typography>)}
+                <TextField
+                    multiline
+                    rows={2}
+                    margin="dense"
+                    name="description"
+                    label="Information"
+                    type="text"
+                    fullWidth
+                    variant="standard"
+                    value={formik.values.description}
+                    onChange={formik.handleChange}
+                />
+                {formik.errors.description && (<Typography variant="caption" color="error" display="block">{formik.errors.description}</Typography>)}
+                <FormControlLabel
+                    control={<Switch />}
+                    label="Top players"
+                    name="top"
+                    onChange={formik.handleChange}
+                    checked={formik.values.top}
+                />
+                <br />
+                <Button variant="contained" size="small" type="submit">Add</Button>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Congraturation"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            <Alert severity="success">
+                                <AlertTitle>Adding successful!</AlertTitle>
+                            </Alert>
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button><Link to='/dashboard' style={{ textDecoration: "none" }}>Dashboard</Link></Button>
+                        <Button autoFocus onClick={handleClose}>
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </form>
+        </Card>
     );
 }
 

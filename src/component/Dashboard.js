@@ -17,8 +17,8 @@ function Dashboard() {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Cost</th>
-            <th>Club</th>
+            <th>Age</th>
+            <th>Nation</th>
             <th>Image</th>
             <th>Clip</th>
             <th>Famous</th>
@@ -33,7 +33,7 @@ function Dashboard() {
           {data.map(item => (
             <tr key={item.id}>
               <td>{item.name}</td>
-              <td>{item.cost}</td>
+              <td>{item.age}</td>
               <td>{item.club}</td>
               <td>
                 <img src={item.img} alt={item.name} style={{ width: '240px', height: '240px' }} />
