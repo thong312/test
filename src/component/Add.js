@@ -51,7 +51,7 @@ function Add() {
   });
 
   return (
-    <Card sx={{ backgroundColor: '#f5f5f5', padding: '1rem' }}>
+    <Card sx={{ backgroundColor: '#f5f5f5', padding: '1rem', marginBottom: '30px' }}>
       <h1>ADD MORE CHARACTER</h1>
       <form onSubmit={formik.handleSubmit}>
         <TextField
@@ -146,9 +146,13 @@ function Add() {
           checked={formik.values.top}
         />
         <br />
-        <Button variant="contained" size="small" type="submit">
+        <Button variant="contained" size="small" type="submit" style={{ width: '150px' }}>
           Add
         </Button>
+        <Button variant="outlined" component={Link} to="/dashboard" style={{ width: '150px' }}>
+          Dashboard
+        </Button>
+
         <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
           <DialogTitle id="alert-dialog-title">Congratulation</DialogTitle>
           <DialogContent>

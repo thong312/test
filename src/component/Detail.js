@@ -56,7 +56,7 @@ function DetailPage() {
             Info: {playerData.info}
           </Typography>
           <Button variant="outlined" onClick={handleClipOpen}>Open Clip</Button>
-         
+
         </CardContent>
       </Card>
 
@@ -91,6 +91,7 @@ function DetailPage() {
         </div>
       </Modal>
       <Button variant="outlined" component={Link} to="/" style={{ marginTop: '1rem' }}>Return to Homepage</Button>
+      <Button variant="outlined" component={Link} to="/dashboard" style={{ marginTop: '1rem' }}>Dashboard</Button>
     </Container>
   );
 }

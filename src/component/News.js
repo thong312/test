@@ -1,82 +1,82 @@
-import React from 'react';
-import { Container, Typography, Grid, Card, CardContent } from '@mui/material';
-
-
-const newsData = [
-  {
-    title: 'New Character Announcement',
-    date: 'June 25, 2023',
-    content: 'Introducing a powerful new character coming to Genshin Impact!',
-  },
-  {
-    title: 'In-Game Event: Summer Festival',
-    date: 'July 3, 2023',
-    content: 'Join the Summer Festival in Genshin Impact and unlock exclusive rewards!',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-  {
-    title: 'Version 2.1 Update Released',
-    date: 'August 12, 2023',
-    content: 'Experience new quests, areas, and features in the latest game update.',
-  },
-];
+import React, { useState } from 'react';
+import { Tabs, Tab, Typography, Card, CardContent, CardMedia } from '@mui/material';
 
 const News = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabChange = (event, newIndex) => {
+    setActiveTab(newIndex);
+  };
+
+  const newsData = [
+    {
+      title: 'New Character Announcement: Kirara',
+      description:
+        'Acourier for Komaniya Express, a delivery company in Inazuma. A nekomata who loves her jobs and human society',
+      image: 'picture/pic/2.jpg',
+    },
+    
+    {
+      title: 'Current Event: Duel! The Summoners’ Summit!',
+      description:
+        'During the event, four types of gameplay will unlock in sequence: A Tour of Wonders, Zero Hour Invokation, Evermotion Mechanical Painting: Invoker, and Heart of the Dice.',
+      image: 'picture/pic/5.jpg',
+    },
+    {
+      title: '3.8 Update Released',
+      description:
+        'Genshin Impact 3.8 will release on Wednesday 5th July. It should follow the usual maintenance schedule for new updates, with 3.8 releasing at 4am (BST).',
+      image: 'picture/pic/1.jpg',
+    },
+  ];
+
   return (
-    <Container >
-      <div style={{ width: '100%', maxHeight: '100%' }}>
-      <Typography variant="h2" align="center" gutterBottom>
-         News
+    <div className="container" style={{marginBottom:'50px'}}>
+      <Typography variant="h2" component="h2">
+        News
       </Typography>
-      <Grid container spacing={2}>
+
+      <Tabs
+        value={activeTab}
+        onChange={handleTabChange}
+        variant="scrollable"
+        scrollButtons="auto"
+      >
         {newsData.map((news, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card>
-              <CardContent>
-                <Typography variant="h4" component="h2" gutterBottom>
-                  {news.title}
-                </Typography>
-                <Typography variant="subtitle2" color="textSecondary" gutterBottom>
-                  {news.date}
-                </Typography>
-                <Typography variant="body1">{news.content}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+          <Tab
+            key={index}
+            label={news.title}
+            className={activeTab === index ? 'active' : ''}
+          />
         ))}
-      </Grid>
+      </Tabs>
+
+      <div className="tab-content">
+        {newsData.map((news, index) => (
+          <Card
+            key={index}
+            style={{ display: activeTab === index ? 'block' : 'none' }}
+          >
+            <CardMedia
+              component="img"
+              height="400px"
+              width="100%"
+              image={news.image}
+              alt=""
+              style={{ objectFit: 'contain' }} // Add CSS style to control image display
+            />
+            <CardContent>
+              <Typography variant="h4" component="h4">
+                {news.title}
+              </Typography>
+              <Typography variant="h5" component="h5">
+                {news.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
       </div>
-      
-    </Container>
+    </div>
   );
 };
 
