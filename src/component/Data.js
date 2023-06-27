@@ -40,14 +40,17 @@ function Data() {
                             </CardContent>
                             <CardActions>
                                 <Button size="small">{data.nation}</Button>
-                                <Button size="small">Detail</Button>
+                                <Link to={`detail/${data.id}`}>
+                                    <Button size="small">Detail</Button>
+                                </Link>
+
                             </CardActions>
                         </Card>
                     </Grid>
                 ))}
             </Grid>
             <Link to={`/add`} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', textDecoration: 'none' }}>
-                <AddIcon/>
+                <AddIcon />
             </Link>
         </Container>
     );

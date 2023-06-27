@@ -1,66 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, IconButton, Typography, Button, ListItemIcon } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import FiberNewIcon from '@mui/icons-material/FiberNew';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
-const useStyles = makeStyles((theme) => ({
-  nav: {
-    backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(2),
-  },
-  ul: {
-    listStyle: "none",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 0,
-    padding: 0,
-  },
-  li: {
-    marginLeft: theme.spacing(2),
-  },
-  link: {
-    color: theme.palette.common.white,
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-}));
-
-function Navigation() {
-  const classes = useStyles();
-
+export default function Navigation() {
   return (
-    <div className={classes.nav}>
-      <nav>
-        <ul className={classes.ul}>
-          <li className={classes.li}>
-            <Link to="/" className={classes.link}>
-              Home
-            </Link>
-          </li>
-          <li className={classes.li}>
-            <Link to="/contact" className={classes.link}>
-              Contact
-            </Link>
-          </li>
-          <li className={classes.li}>
-            <Link to="/news" className={classes.link}>
-              News
-            </Link>
-          </li>
-          <li className={classes.li}>
-            <Link to="/about-us" className={classes.link}>
-              About Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
+          CHARACTERS CARD
+        </Typography>
+        <Button color="inherit" component={Link} to="/">
+          
+            <HomeIcon />
+         
+          Home
+        </Button>
+        <Button color="inherit" component={Link} to="/about">
+          
+            <InfoOutlinedIcon />
+          
+          About Us
+        </Button>
+        <Button color="inherit" component={Link} to="/news">
+          
+            <FiberNewIcon />
+          
+          News
+        </Button>
+        <Button color="inherit" component={Link} to="/contact">
+         
+            <ContactsIcon />
+          Contact
+        </Button>
+      </Toolbar>
+    </AppBar>
   );
 }
-
-export default Navigation;
-
-
-
