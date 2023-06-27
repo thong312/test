@@ -17,7 +17,7 @@ function Add() {
       club: '',
       age: '',
       clip: '',
-      description: '',
+      info: '',
       img: '',
       top: false,
     },
@@ -44,7 +44,7 @@ function Add() {
       nation: Yup.string().required('Required.').min(2, 'Must be 2 characters or more'),
       club: Yup.string().required('Required.').min(2, 'Must be 2 characters or more'),
       age: Yup.number().integer().typeError('Please type a number.'),
-      description: Yup.string().required('Required.').min(10, 'Must be 10 characters or more'),
+      info: Yup.string().required('Required.').min(10, 'Must be 10 characters or more'),
       clip: Yup.string().required('Required.').min(10, 'Must be 10 characters or more'),
       img: Yup.string().required('Required.').min(10, 'Must be 10 characters or more'),
     }),
@@ -125,22 +125,22 @@ function Add() {
           multiline
           rows={2}
           margin="dense"
-          name="description"
+          name="info"
           label="Information"
           type="text"
           fullWidth
           variant="standard"
-          value={formik.values.description}
+          value={formik.values.info}
           onChange={formik.handleChange}
         />
-        {formik.errors.description && (
+        {formik.errors.info && (
           <Typography variant="caption" color="error" display="block">
-            {formik.errors.description}
+            {formik.errors.info}
           </Typography>
         )}
         <FormControlLabel
           control={<Switch />}
-          label="Top players"
+          label="Famous characters"
           name="top"
           onChange={formik.handleChange}
           checked={formik.values.top}

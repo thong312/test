@@ -5,7 +5,7 @@ import { Group as GroupIcon, Notifications as NotificationsIcon, LocationOn as L
 export default function About() {
 
     return (
-        <Container>
+        <Container style={{marginBottom:'350px'}}>
             <div className='about-container'>
                 <div>
                     <Typography variant="h2">About Us</Typography>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Grid, TextField, Button } from '@mui/material';
@@ -19,6 +19,7 @@ function Dashboard() {
   const [isUpdateSuccessful, setIsUpdateSuccessful] = useState(false);
 
   const baseURL = 'https://64901c9c1e6aa71680ca9a2f.mockapi.io/Players';
+  const dashboardRef = useRef(null);
 
   useEffect(() => {
     fetch(baseURL)
@@ -107,52 +108,61 @@ function Dashboard() {
   };
 
   return (
-    <div className='container' style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-      <h1>Dashboard</h1>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Age</th>
-            <th>Nation</th>
-            <th>Delete</th>
-            <th>Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </td>
-              <td>{item.age}</td>
-              <td>{item.club}</td>
-              <td>
-                <DeleteIcon onClick={() => handleDelete(item.id)}>Delete</DeleteIcon>
-              </td>
-              <td>
-                <EditIcon onClick={() => handleUpdate(item)}>Update</EditIcon>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div
+      className='container'
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', overflow: 'hidden' }}
+    >
+      
+      {!selectedPlayer && (
+        <div style={{ width: '100%', maxHeight: '100%', overflow: 'auto' }}>
+          <h1>Dashboard</h1>
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Nation</th>
+                <th>Delete</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map(item => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      style={{
+                        width: '150px',
+                        height: '150px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{item.age}</td>
+                  <td>{item.club}</td>
+                  <td>
+                    <DeleteIcon onClick={() => handleDelete(item.id)}>Delete</DeleteIcon>
+                  </td>
+                  <td>
+                    <EditIcon onClick={() => handleUpdate(item)}>Update</EditIcon>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
       {selectedPlayer && (
         <div>
-          <h2>Update Player</h2>
+          <h2>Update Character info</h2>
           <form onSubmit={handleUpdateSubmit} className="update-form">
             <Grid container spacing={2} alignItems="center">
               <Grid item xs={12}>

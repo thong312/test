@@ -48,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <Container>
+    <Container style={{marginBottom:'135px'}}>
       <FormContainer>
         <StyledForm onSubmit={handleSubmit} style={{width:'100%'}}>
           <Typography variant="h2" gutterBottom>

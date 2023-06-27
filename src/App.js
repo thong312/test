@@ -9,6 +9,7 @@ import Detail from './component/Detail';
 import About from './component/AboutUs';
 import Contact from './component/Contact';
 import News from './component/News';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/news' element={<News />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }

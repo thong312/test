@@ -33,11 +33,27 @@ const newsData = [
     date: 'August 12, 2023',
     content: 'Experience new quests, areas, and features in the latest game update.',
   },
+  {
+    title: 'Version 2.1 Update Released',
+    date: 'August 12, 2023',
+    content: 'Experience new quests, areas, and features in the latest game update.',
+  },
+  {
+    title: 'Version 2.1 Update Released',
+    date: 'August 12, 2023',
+    content: 'Experience new quests, areas, and features in the latest game update.',
+  },
+  {
+    title: 'Version 2.1 Update Released',
+    date: 'August 12, 2023',
+    content: 'Experience new quests, areas, and features in the latest game update.',
+  },
 ];
 
 const News = () => {
   return (
-    <Container>
+    <Container >
+      <div style={{ width: '100%', maxHeight: '100%' }}>
       <Typography variant="h2" align="center" gutterBottom>
          News
       </Typography>
@@ -58,6 +74,8 @@ const News = () => {
           </Grid>
         ))}
       </Grid>
+      </div>
+      
     </Container>
   );
 };
