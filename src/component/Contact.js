@@ -21,6 +21,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: '',
   });
 
@@ -43,12 +44,13 @@ export default function Contact() {
     setFormData({
       name: '',
       email: '',
+      phone: '',
       message: '',
     });
   };
 
   return (
-    <Container style={{marginBottom:'135px'}}>
+    <Container style={{marginBottom:'135px', marginTop:'20px'}}>
       <FormContainer>
         <StyledForm onSubmit={handleSubmit} style={{width:'100%'}}>
           <Typography variant="h2" gutterBottom>
@@ -69,6 +71,16 @@ export default function Contact() {
             name="email"
             label="Email"
             value={formData.email}
+            onChange={handleChange}
+            required
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            id="phone"
+            name="phone"
+            label="Phone"
+            value={formData.phone}
             onChange={handleChange}
             required
             fullWidth

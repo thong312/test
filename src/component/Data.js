@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Container, Icon } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Container} from '@mui/material';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 function Data() {
@@ -25,7 +25,22 @@ function Data() {
 
     return (
         <Container maxWidth="md" style={{ marginTop: '20px' }}>
+            <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.4rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize:'4rem'
+            }}
+          >
+            CHARACTER CARD
+          </Typography>
             <Grid container spacing={2} justifyContent="center">
+               
                 {APIData.map((data) => (
                     <Grid item key={data.id} md={4}>
                         <Card>

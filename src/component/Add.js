@@ -52,7 +52,20 @@ function Add() {
 
   return (
     <Card sx={{ backgroundColor: '#f5f5f5', padding: '1rem', marginBottom: '30px' }}>
-      <h1>ADD MORE CHARACTER</h1>
+       <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.4rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize:'4rem'
+            }}
+          >
+            ADD CHARACTERS
+          </Typography>
       <form onSubmit={formik.handleSubmit}>
         <TextField
           autoFocus

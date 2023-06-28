@@ -28,6 +28,12 @@ const News = () => {
         'Genshin Impact 3.8 will release on Wednesday 5th July. It should follow the usual maintenance schedule for new updates, with 3.8 releasing at 4am (BST).',
       image: 'picture/pic/1.jpg',
     },
+    {
+      title: '3.8 New skin released',
+      description:
+        'Blossoming Starlight is a skin for Klee that you can buy with a limited time discount in Genshin Impact 3.8.',
+      image: 'picture/pic/7.jpg',
+    },
   ];
 
   return (
