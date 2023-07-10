@@ -15,7 +15,7 @@ const StyledBox = styled(Box)({
 });
 
 const StyledTypography = styled(Typography)({
-  marginBottom: '20px',
+  marginBottom: '8px',
   textAlign: 'center',
 });
 
@@ -40,7 +40,7 @@ export default function Login() {
   return (
     <StyledBox>
       <div>
-        <StyledTypography variant="h4">Login</StyledTypography>
+        <StyledTypography variant="h4">Login By Google</StyledTypography>
         <GoogleButton onClick={handleGoogleSignIn} />
       </div>
     </StyledBox>

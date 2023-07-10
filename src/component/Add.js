@@ -51,7 +51,7 @@ function Add() {
   });
 
   return (
-    <Card sx={{ backgroundColor: '#f5f5f5', padding: '1rem', marginBottom: '30px' }}>
+    <Card sx={{ backgroundColor: '#f5f5f5', padding: '1rem', marginBottom: '45px' }}>
        <Typography
             variant="h6"
             noWrap
@@ -151,13 +151,6 @@ function Add() {
             {formik.errors.info}
           </Typography>
         )}
-        <FormControlLabel
-          control={<Switch />}
-          label="Famous characters"
-          name="top"
-          onChange={formik.handleChange}
-          checked={formik.values.top}
-        />
         <br />
         <Button variant="contained" size="small" type="submit" style={{ width: '150px' }}>
           Add

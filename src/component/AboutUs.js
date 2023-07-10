@@ -8,7 +8,16 @@ export default function About() {
         <Container style={{marginBottom:'350px'}}>
             <div className='about-container'>
                 <div>
-                    <Typography variant="h2">About Us</Typography>
+                    <Typography variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.4rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize:'5rem'
+            }}>About Us</Typography>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <ListItemIcon>

@@ -38,7 +38,17 @@ const News = () => {
 
   return (
     <div className="container" style={{marginBottom:'50px'}}>
-      <Typography variant="h2" component="h2">
+      <Typography variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize:'5rem'
+            }}
+      >
         News
       </Typography>
 

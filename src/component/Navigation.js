@@ -17,6 +17,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function ResponsiveAppBar() {
   const { user, logOut } = UserAuth();
@@ -48,49 +49,52 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" >
-      <Container maxWidth="xl" color='black'>
+    <AppBar position="static" style={{ backgroundColor: 'darkblue' }}>
+      <Container maxWidth="xl" color="black">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            CHARACTER CARD
-          </Typography>
-
-          <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1 }}>
+          <Box display="flex" flexGrow={1}>
             <Button color="inherit" component={Link} to="/">
-              <HomeIcon />
-              Home
+              <MenuIcon />
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  mr: 2,
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontSize: '1rem',
+                }}
+              >
+                CHARACTER CARD
+              </Typography>
             </Button>
 
-            <Button color="inherit" component={Link} to="/about">
-              <InfoOutlinedIcon />
-              About Us
-            </Button>
+            <Box>
+              <Button color="inherit" component={Link} to="/">
+                <HomeIcon />
+                Home
+              </Button>
 
-            <Button color="inherit" component={Link} to="/news">
-              <FiberNewIcon />
-              News
-            </Button>
+              <Button color="inherit" component={Link} to="/about">
+                <InfoOutlinedIcon />
+                About Us
+              </Button>
 
-            <Button color="inherit" component={Link} to="/contact">
-              <ContactsIcon />
-              Contact
-            </Button>
+              <Button color="inherit" component={Link} to="/news">
+                <FiberNewIcon />
+                News
+              </Button>
+
+              <Button color="inherit" component={Link} to="/contact">
+                <ContactsIcon />
+                Contact
+              </Button>
+            </Box>
           </Box>
 
-
-          <Box sx={{ flexGrow: 0 }}>
+          <div>
             {user?.displayName ? (
               <div>
                 <Tooltip title="Open settings">
@@ -130,10 +134,13 @@ function ResponsiveAppBar() {
               </div>
             ) : (
               <Link to="/login" style={{ textDecoration: 'none' }}>
-                <Button sx={{ my: 2, color: 'white', display: 'block' }}><LoginIcon />Sign in</Button>
+                <IconButton color='inherit'>
+                  <LoginIcon />
+                  Sign In
+                </IconButton>
               </Link>
             )}
-          </Box>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>

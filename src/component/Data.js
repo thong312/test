@@ -31,7 +31,7 @@ function Data() {
             sx={{
               mr: 2,
               fontWeight: 700,
-              letterSpacing: '.4rem',
+              letterSpacing: '.8rem',
               color: 'inherit',
               textDecoration: 'none',
               fontSize:'4rem'

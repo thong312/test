@@ -53,7 +53,16 @@ export default function Contact() {
     <Container style={{marginBottom:'135px', marginTop:'20px'}}>
       <FormContainer>
         <StyledForm onSubmit={handleSubmit} style={{width:'100%'}}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize:'5rem'
+            }}>
             Contact Us
           </Typography>
           <TextField

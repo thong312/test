@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { Grid, TextField, Button } from '@mui/material';
+import { Grid, TextField, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 
 function Dashboard() {
   const [data, setData] = useState([]);
@@ -112,27 +114,39 @@ function Dashboard() {
       className='container'
       style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', overflow: 'hidden' }}
     >
-      
       {!selectedPlayer && (
         <div style={{ width: '100%', maxHeight: '100%', overflow: 'auto' }}>
-          <h1>Dashboard</h1>
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              fontWeight: 700,
+              letterSpacing: '.8rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              fontSize: '3rem'
+            }}
+          >
+            DASHBOARD
+          </Typography>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Nation</th>
-                <th>Delete</th>
-                <th>Update</th>
+              <tr style={{ backgroundColor: 'darkblue', color: 'white' }}>
+                <th style={{ padding: '10px' }}>ID</th>
+                <th style={{ padding: '10px' }}>Image</th>
+                <th style={{ padding: '10px' }}>Name</th>
+                <th style={{ padding: '10px' }}>Age</th>
+                <th style={{ padding: '10px' }}>Nation</th>
+                <th style={{ padding: '10px' }}>Delete</th>
+                <th style={{ padding: '10px' }}>Update</th>
               </tr>
             </thead>
             <tbody>
               {data.map(item => (
                 <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>
+                  <td style={{ padding: '10px' }}>{item.id}</td>
+                  <td style={{ padding: '10px' }}>
                     <img
                       src={item.img}
                       alt={item.name}
@@ -144,19 +158,22 @@ function Dashboard() {
                       }}
                     />
                   </td>
-                  <td>{item.name}</td>
-                  <td>{item.age}</td>
-                  <td>{item.club}</td>
-                  <td>
+                  <td style={{ padding: '10px' }}>{item.name}</td>
+                  <td style={{ padding: '10px' }}>{item.age}</td>
+                  <td style={{ padding: '10px' }}>{item.club}</td>
+                  <td style={{ padding: '10px' }}>
                     <DeleteIcon onClick={() => handleDelete(item.id)}>Delete</DeleteIcon>
                   </td>
-                  <td>
+                  <td style={{ padding: '10px' }}>
                     <EditIcon onClick={() => handleUpdate(item)}>Update</EditIcon>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <Link to={`/add`} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', textDecoration: 'none' }}>
+            <AddIcon />
+          </Link>
         </div>
       )}
 
